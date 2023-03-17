@@ -1,0 +1,10 @@
+@import url("/css/header.css");
+@import url("/css/normalize.css");
+@import url("/css/variables.css");
+@import url("/css/header-nav.css");
+
+
+main {
+    width: 90%;
+    margin:auto;
+}
