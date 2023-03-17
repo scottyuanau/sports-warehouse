@@ -10,6 +10,30 @@
 </head>
 
 <body>
+    <div class="sitenav">
+        <nav class="sitenav-items">
+            <ul class="sitenav-items_ul">
+                <li class="sitenav-items_li">Home</li>
+                <li class="sitenav-items_li">About SW</li>
+                <li class="sitenav-items_li">Contact Us</li>
+                <li class="sitenav-items_li">View Products</li>
+            </ul>
+        </nav>
+        <div class="usercontrol">
+            <div class="login">
+                <img src="/img/login.png" alt="login">
+                <span>Login</span>
+            </div>
+            <div class="cart">
+                <img src="/img/cart.png" alt="cart">
+                <span>View Cart</span>
+            </div>
+            <div class="cart-items">
+                <span>0 items</span>
+            </div>
+        </div>
+    </div>
+
     <main>
         <header>
             <img src='img/logo.png' alt='logo'>

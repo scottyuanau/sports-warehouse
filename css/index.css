@@ -2,9 +2,14 @@
 @import url("/css/normalize.css");
 @import url("/css/variables.css");
 @import url("/css/header-nav.css");
+@import url("/css/site-nav.css");
 
 
 main {
     width: 90%;
     margin:auto;
+}
+
+* {
+    font-family: Arial, Helvetica, sans-serif;
 }
