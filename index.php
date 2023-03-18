@@ -13,6 +13,11 @@
     <div class="sitenav">
         <nav class="sitenav-items">
             <div id='mobilenav'>
+                <!-- <div class="hamburger sitenav-items_icon" id="navbutton-icon">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </div> -->
                 <i class="fa-solid fa-bars sitenav-items_icon" id='navbutton-icon'></i>
                 <span id='navbutton-description'>Menu</span>
             </div>
