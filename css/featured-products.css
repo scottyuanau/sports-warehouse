@@ -1,0 +1,15 @@
+.featured-products-heading {
+    background-color: var(--highlight-color);
+    color:white;
+    padding:10px 20px;
+    font-weight: 200;
+    font-size: 1rem;
+    border-radius: 20px 0 0 20px;
+}
+
+@media (max-width:750px) {
+    .featured-products-heading {
+        margin-left:10px;
+    }
+
+}

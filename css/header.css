@@ -5,6 +5,14 @@ header {
     align-items: center;
   }
 
+@media (max-width:600px) {
+  header {
+    flex-direction: column;
+  }
+}
+
+
+
   .searchbar {
     display: flex;
     align-items: center;
@@ -31,3 +39,7 @@ header {
     color: white;
   }
   
+  .logo {
+    width: 50%;
+    height: auto;
+  }
