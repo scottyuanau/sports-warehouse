@@ -1,10 +1,57 @@
 .banner-image {
     width:100%;
-    margin-top:10px;
+    height:100%;
 }
 
 @media (max-width:750px) {
     .banner-image {
         display: none;
     }
+    .banner {
+        display: none;
+    }
+}
+
+.banner-callout {
+    position: absolute;
+    background-color: var(--sub-color);
+    color:white;
+    right:0px;
+    top:-1px;
+    width:30%;
+    height:100%;
+    border-radius: 50% 0 0 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border:2px solid white;
+}
+.banner-callout-description {
+    max-width: 150px;
+    text-align: center;
+}
+
+.banner-callout-button {
+    color:white;
+    background-color: var(--button-color);
+    padding:5px 10px;
+    border:0px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.banner-callout-button:hover {
+    background-color: var(--main-color);
+}
+
+
+.banner {
+    position: relative;
+    height:auto;
+    margin-top:20px;
+}
+
+.banner-callout-title {
+ font-size: 2rem;
+ font-weight: 200;
 }

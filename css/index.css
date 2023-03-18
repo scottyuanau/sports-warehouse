@@ -5,10 +5,12 @@
 @import url("/css/site-nav.css");
 @import url("/css/banner.css");
 @import url("/css/featured-products.css");
-
+@import url("/css/partnership.css");
+@import url("/css/footer.css");
 
 main {
-    width: 90%;
+    width: 80%;
+    max-width:1200px;
     margin:auto;
 }
 
@@ -25,4 +27,18 @@ main {
 body {
     margin: 0 auto;
     width:100%;
+}
+
+.section-heading {
+    background-color: var(--highlight-color);
+    color:white;
+    padding:10px 20px;
+    font-weight: 200;
+    font-size: 1rem;
+    border-radius: 20px 0 0 20px;
+}
+@media (max-width:750px) {
+    .section-heading {
+        margin-left:10px;
+    }
 }

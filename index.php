@@ -54,14 +54,136 @@
             </ul>
         </nav>
         <section class='banner'>
+            <div class='banner-callout'>
+                <p class='banner-callout-description'>View our brand new range of</p>
+                <h2 class='banner-callout-title'>Sports Balls</h2>
+                <button class='banner-callout-button'>Shop now</button>
+            </div>
             <img src='/img/banner.png' alt='banner' class='banner-image'>
         </section>
         <section class='featured-products'>
-            <h2 class='featured-products-heading'>Featured products</h2>
+            <h2 class='section-heading'>Featured products</h2>
+            <div class='featured-products-gallery'>
+                <div class="featured-products-card">
+                    <div class='featured-products-img-wrap'>
+                        <img src="/img/product-adidas-euro16.png" alt="adidas-euro16" class='featured-products-img'>
+                    </div>
+                    <div class='price'>
+                        <span class='price-discount'>$34.95</span>
+                        <span class='price-original'>$46.00</span>
+                    </div>
+                    <div class='featured-products-title'>adidas Euro16 Top Soccer Ball</div>
+                </div>
+                <div class="featured-products-card">
+                    <div class='featured-products-img-wrap'>
+                        <img src="/img/product-pro-tec-classic-skate-helmet.png" alt="pro-tec-classic-skate-helmet" class='featured-products-img'>
+                    </div>
+                    <div class='price'>
+                        <span class='price-current'>$70.00</span>
+                    </div>
+                    <div class='featured-products-title'>Pro-tec Classic Skate Helmet</div>
+                </div>
+                <div class="featured-products-card">
+                    <div class='featured-products-img-wrap'>
+                        <img src="/img/product-nike-sport.png" alt="nike-sport-600ml-water-bottle" class='featured-products-img'>
+                    </div>
+                    <div class='price'>
+                        <span class='price-discount'>$15.00</span>
+                        <span class='price-original'>$17.50</span>
+                    </div>
+                    <div class='featured-products-title'>Nike Sport 600ml Water Bottle</div>
+                </div>
+                <div class="featured-products-card">
+                    <div class='featured-products-img-wrap'>
+                        <img src="/img/product-sting-armaplus.png" alt="sting armaplus boxing gloves" class='featured-products-img'>
+                    </div>
+                    <div class='price'>
+                        <span class='price-current'>$79.95</span>
+                    </div>
+                    <div class='featured-products-title'>Sting ArmaPlus Boxing Gloves</div>
+                </div>
+                <div class="featured-products-card">
+                    <div class='featured-products-img-wrap'>
+                        <img src="/img/product-ascics-gel-lethal.png" alt="asics gel lethal tigreor 8" class='featured-products-img'>
+                    </div>
+                    <div class='price'>
+                        <span class='price-current'>$160.00</span>
+
+                    </div>
+                    <div class='featured-products-title'>Asics Gel Lethal Tigreor 8 IT Men's FG Boots</div>
+                </div>
+
+            </div>
+        </section>
+
+        <section class='partnership'>
+            <h2 class='section-heading'>Our brands and partnerships</h2>
+            <div class='partnership-wrap'>
+                <div class='partnership-description'>
+                    <p>These are some of our top brands and partnerships.</p>
+                    <p class='partnership-description_highlight'>The best of the best is here.</p>
+                </div>
+                <div class="partnership-logos">
+                    <img src="img/logo_nike.png" alt="nike" class='partnership-individual-logo'>
+                    <img src="img/logo_adidas.png" alt="adidas" class='partnership-individual-logo'>
+                    <img src="img/logo_skins.png" alt="skins" class='partnership-individual-logo'>
+                    <img src="img/logo_asics.png" alt="asics" class='partnership-individual-logo'>
+                    <img src="img/logo_newbalance.png" alt="new balance" class='partnership-individual-logo'>
+                    <img src="img/logo_wilson.png" alt="wilson" class='partnership-individual-logo'>
+                </div>
+            </div>
         </section>
     </main>
     <footer>
+        <section class='footer-nav'>
+            <h3 class='footer-section-heading'>Site navigation</h3>
+            <ul>
+                <li>Home</li>
+                <li>About SW</li>
+                <li>Contact Us</li>
+                <li>View Products</li>
+                <li>Privacy Policy</li>
+            </ul>
+        </section>
+        <section class='footer-product-category'>
+            <h3 class='footer-section-heading'>Product categories</h3>
+            <ul>
+                <li>Shoes</li>
+                <li>Helmets</li>
+                <li>Pants</li>
+                <li>Tops</li>
+                <li>Balls</li>
+                <li>Equipment</li>
+                <li>Training Gear</li>
+            </ul>
+        </section>
+        <section class='footer-contact'>
+            <h3 class='footer-section-heading'>Contact Sports Warehouse</h3>
+            <div class='contact-card-wrap'>
+                <div class='contact-card'>
+                    <div class='contact-logo'>
+                        <img src="/img/facebook icon.png" alt="facebook" class='footer-logo-img'>
+                    </div>
+                    <p class='footer-logo-title'>Facebook</p>
+                </div>
+                <div class='contact-card'>
+                    <div class='contact-logo'>
+                        <img src="/img/twitter icon.png" alt=" twitter" class='footer-logo-img'>
+                    </div>
+                    <p class='footer-logo-title'>Twitter</p>
+                </div>
+                <div class='contact-card'>
+                    <div class='contact-logo'>
+                        <img src="/img/other icon.png" alt="other" class='footer-logo-img'>
+                    </div>
+                    <p class='footer-logo-title'>Other</p>
+                </div>
 
+            </div>
+        </section>
+        <section class='footer-disclaimer'>
+            <p>© Copyright 2020 Sports Warehouse. All rights reserved. Website made by Awesomesauce Design.</p>
+        </section>
     </footer>
 
 
