@@ -11,7 +11,6 @@
 
 .sitenav-items {
     width: 50%;
-    min-width:450px;
     max-width:600px;
 }
 
@@ -25,6 +24,10 @@
     cursor: pointer;
     padding:5px 20px;
     border-radius: 20px;
+}
+
+.sitenav-items_li svg{
+    margin-right:10px;
 }
 
 .sitenav-items_li:hover {
@@ -67,13 +70,9 @@
 }
 
 
-.login-image {
-    margin-right:5px;
-    transform:scale(0.8);
-}
 
 @media (min-width:750px) {
-.sitenav-items_icon {
+#mobilenav {
     display: none;
 }
 .sitenav-items_circle {
@@ -82,23 +81,29 @@
 
 .login {
     position: absolute;
-    display: flex;
-    align-items: center;
-    top:5px;
-    right:30%;
+    top:7.5px;
+    right:31%;
 }
 
+}
+
+.sitenav-items_icon {
+    width:40px;
+    height:25px;
 }
 
 @media (max-width:750px) {
 
-    .sitenav-items_icon {
+    #mobilenav {
         position: absolute;
-        top:10px;
-        left:10px;
+        top:0px;
+        left:0px;
         cursor: pointer;
-        width:25px;
-        height:25px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width:100px;
+        height:40px;
     }
     .sitenav-items_circle {
         font-size: 10px;
@@ -113,7 +118,7 @@
         position: absolute;
         background-color: var(--sub-color);
         width: 200px;
-        top:-300px;
+        top:-500px;
         height:300px;
         padding-inline-start: 0px;
     }

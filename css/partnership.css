@@ -5,7 +5,7 @@
 }
 
 .partnership-description {
-    max-width: 400px;
+    max-width: 250px;
     color:grey;
     padding:0 20px;
 }
@@ -15,11 +15,12 @@
 
 .partnership-logos {
     background-color: var(--main-color);
-    width:60%;
+    width:70%;
     height:80px;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    padding-left:20px;
     border-radius: 50px 0 0 50px;
 }
 

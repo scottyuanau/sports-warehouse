@@ -33,6 +33,9 @@
 }
 
 
+#mobilenav:hover {
+    background-color: var(--main-color);
+}
 
 @media (min-width:750px) {
     .heardernav-li_arrow {

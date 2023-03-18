@@ -12,9 +12,12 @@
 <body>
     <div class="sitenav">
         <nav class="sitenav-items">
-            <i class="fa-solid fa-bars sitenav-items_icon" id="mobilenav"></i>
+            <div id='mobilenav'>
+                <i class="fa-solid fa-bars sitenav-items_icon" id='navbutton-icon'></i>
+                <span id='navbutton-description'>Menu</span>
+            </div>
             <ul class="sitenav-items_ul">
-                <li class="sitenav-items_li login"><img src="/img/login.png" alt="login" class="login-image"><span>Login</span></li>
+                <li class="sitenav-items_li login"><i class="fa-solid fa-lock"></i><span>Login</span></li>
                 <li class="sitenav-items_li"><i class="fa-regular fa-circle sitenav-items_circle"></i><span>Home</span></li>
                 <li class="sitenav-items_li"><i class="fa-regular fa-circle sitenav-items_circle"></i><span>About SW</span></li>
                 <li class="sitenav-items_li"><i class="fa-regular fa-circle sitenav-items_circle"></i><span>Contact Us</span></li>
@@ -23,7 +26,7 @@
         </nav>
         <div class="usercontrol">
             <div class="cart">
-                <img src="/img/cart.png" alt="cart">
+                <i class="fa-solid fa-cart-shopping"></i>
                 <span>View Cart</span>
             </div>
             <div class="cart-items">
@@ -188,6 +191,7 @@
 
 
     <script src="https://kit.fontawesome.com/b0c79d8457.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
     <script src="js/index.js"></script>
 </body>
 
