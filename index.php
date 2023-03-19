@@ -13,12 +13,13 @@
     <div class="sitenav">
         <nav class="sitenav-items">
             <div id='mobilenav'>
-                <!-- <div class="hamburger sitenav-items_icon" id="navbutton-icon">
+                <!-- mobile nav hamburger -->
+                <div class="hamburger sitenav-items_icon" id="navbutton-icon">
                     <span class="line"></span>
                     <span class="line"></span>
                     <span class="line"></span>
-                </div> -->
-                <i class="fa-solid fa-bars sitenav-items_icon" id='navbutton-icon'></i>
+                </div>
+
                 <span id='navbutton-description'>Menu</span>
             </div>
             <ul class="sitenav-items_ul">

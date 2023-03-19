@@ -4,6 +4,7 @@ let navButton = document.querySelector(".sitenav-items");
 navButton.addEventListener("click",(event)=>{
     if(event.target.id ==='mobilenav' || event.target.id === 'navbutton-icon' || event.target.id ==='navbutton-description') {
         document.querySelector(".sitenav-items_ul").classList.toggle('menuhidden');
+        document.querySelector(".hamburger").classList.toggle('is-active');
     } 
 });
 
@@ -11,5 +12,6 @@ navButton.addEventListener("click",(event)=>{
 $(document).on('click', function(event) {
     if (!$(event.target).closest('.sitenav-items').length) {
       $('.sitenav-items_ul').removeClass('menuhidden');
+      $('.hamburger').removeClass('is-active');
     }
 });
