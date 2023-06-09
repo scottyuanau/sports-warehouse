@@ -44,3 +44,8 @@ header {
     height: auto;
     max-width:550px;
   }
+
+  .header-wrapper {
+    width:80%;
+    margin:auto;
+  }

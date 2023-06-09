@@ -1,12 +1,13 @@
-@import url("/css/header.css");
-@import url("/css/normalize.css");
-@import url("/css/variables.css");
-@import url("/css/header-nav.css");
-@import url("/css/site-nav.css");
-@import url("/css/banner.css");
-@import url("/css/featured-products.css");
-@import url("/css/partnership.css");
-@import url("/css/footer.css");
+@import url("header.css");
+@import url("normalize.css");
+@import url("variables.css");
+@import url("header-nav.css");
+@import url("site-nav.css");
+@import url("banner.css");
+@import url("featured-products.css");
+@import url("partnership.css");
+@import url("footer.css");
+@import url("products.css");
 
 main {
     width: 80%;
@@ -27,6 +28,11 @@ main {
 body {
     margin: 0 auto;
     width:100%;
+}
+
+a {
+    color: white;
+    text-decoration: none;
 }
 
 .section-heading {

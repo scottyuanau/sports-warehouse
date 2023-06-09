@@ -75,9 +75,9 @@ footer {
 }
 
 .footer-nav ul{
-    list-style-image: url('/img/list-item.png');
+    list-style-image: url('../img/list-item.png');
 }
 
 .footer-product-category ul {
-    list-style-image: url('/img/list-item.png');
+    list-style-image: url('../img/list-item.png');
 }
