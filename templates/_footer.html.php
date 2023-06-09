@@ -13,7 +13,7 @@
         <h3 class='footer-section-heading'>Product categories</h3>
         <ul>
             <?php foreach ($categories as $category) : ?>
-                <li><a href=""><?= $category["categoryName"] ?></a></li>
+                <li><a href="category.php?id=<?= $category["categoryId"] ?>"><?= $category["categoryName"] ?></a></li>
             <?php endforeach ?>
         </ul>
     </section>

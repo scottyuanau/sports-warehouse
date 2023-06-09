@@ -1,13 +1,13 @@
 <div class="header-wrapper">
     <header>
-        <a href="index.php"><img src='img/logo.png' alt='site-logo' class='logo'></a>
-        <form class='searchbar'>
-            <label for="searchbox">Search</label>
-            <input id='searchbox' type='text' placeholder="Search products" class="searchbar-input" role="searchbox">
+        <a href="index.php" class="logo__link"><img src='img/logo.png' alt='site-logo' class='logo'></a>
+        <form class='searchbar' action="search.php" method="get">
+            <label for="searchbox"></label>
+            <input id='searchbox' type='search' name="search" placeholder="Search products" class="searchbar-input" role="searchbox">
 
-            <div class="searchbar-icon">
+            <button class="searchbar-icon" type="submit" aria-label="Product search">
                 <i class="fa-solid fa-magnifying-glass searchbar-icon_inside" role="button"></i>
-            </div>
+            </button>
         </form>
     </header>
     <nav class="headernav">

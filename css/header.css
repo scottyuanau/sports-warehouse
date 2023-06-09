@@ -34,18 +34,33 @@ header {
     width:30px;
     height:30px;
     cursor: pointer;
+    border:0px;
   }
   .searchbar-icon_inside {
     color: white;
   }
   
   .logo {
-    width: 50%;
+    width: 70%;
     height: auto;
     max-width:550px;
   }
 
+  @media (max-width:750px) {
+    .logo__link {
+    display: flex;
+    justify-content: center;
+  }
+  }
+  
+
   .header-wrapper {
     width:80%;
     margin:auto;
+  }
+
+  @media (max-width:750px) {
+    .header-wrapper {
+      width:100%;
+    }
   }
