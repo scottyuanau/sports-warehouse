@@ -2,9 +2,9 @@
     <section class='footer-nav'>
         <h3 class='footer-section-heading'>Site navigation</h3>
         <ul>
-            <li><a href="">Home</a></li>
+            <li><a href="index.php">Home</a></li>
             <li><a href="">About SW</a></li>
-            <li><a href="">Contact Us</a></li>
+            <li><a href="contactus.php">Contact Us</a></li>
             <li><a href="">View Products</a></li>
             <li><a href="">Privacy Policy</a></li>
         </ul>

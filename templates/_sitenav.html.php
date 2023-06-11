@@ -14,7 +14,7 @@
             <li class="sitenav-items_li login"><i class="fa-solid fa-lock"></i><a href="">Login</a></li>
             <li class="sitenav-items_li"><i class="fa-regular fa-circle sitenav-items_circle"></i><a href="index.php">Home</a></li>
             <li class="sitenav-items_li"><i class="fa-regular fa-circle sitenav-items_circle"></i><a href="">About SW</a></li>
-            <li class="sitenav-items_li"><i class="fa-regular fa-circle sitenav-items_circle"></i><a href="">Contact Us</a></li>
+            <li class="sitenav-items_li"><i class="fa-regular fa-circle sitenav-items_circle"></i><a href="contactus.php">Contact Us</a></li>
             <li class="sitenav-items_li"><i class="fa-regular fa-circle sitenav-items_circle"></i><a href="">View Products</a></li>
         </ul>
     </nav>
