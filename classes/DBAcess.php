@@ -110,4 +110,31 @@ class DBAccess
         // Return query result (single value)
         return $value;
     }
+
+    /**
+     * Execute a PDO statement returning a resultset (rows)
+     *
+     * @param PDOStatement $stmt PDO prepared statement to execute
+     * @param bool $getLastInsertId True to return the last-inserted ID (primary key value)
+     * @return bool|int True/false on success/failure or the last-inserted primary key value if one was generated
+     */
+    public function executeNonQuery($stmt, $getLastInsertId = false)
+    {
+        try {
+            // Execute query and get all rows of data
+            $value = $stmt->execute();
+
+            // Check if we need to get the last-inserted ID(for INSERT with auto-increment)
+            if ($getLastInsertId) {
+
+                //Get the ID
+                $value = $this->_pdo->lastInsertId();
+            }
+        } catch (PDOException $e) {
+            die("Query failed: " . $e->getMessage());
+        }
+
+        // Return the last ID (primary key value) or true/false (success/failure)
+        return $value;
+    }
 }
