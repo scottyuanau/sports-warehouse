@@ -1,6 +1,11 @@
 <div class="product">
     <div class="product__img">
-        <img src="./img/<?= $product["photo"] ?? "" ?>">
+        <?php $file_path = "./img/" . $product["photo"] ?>
+        <?php if (file_exists($file_path)) : ?>
+            <img src="./img/<?= $product["photo"] ?? "" ?>">
+        <?php else : ?>
+            <img src="https://fakeimg.pl/350x350/?text=Insert%20Photo">
+        <?php endif ?>
     </div>
     <div class="product__details">
         <h1><?= $product['itemName'] ?? "NONE" ?></h1>
