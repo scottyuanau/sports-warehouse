@@ -47,7 +47,12 @@ if (isset($_POST['submitInsertProduct'])) {
     //move file to the img folder
     if ($photoPath !== null) {
         $targetDirectory = 'img/';
-        $targetFilePath = $targetDirectory . basename($_FILES['photoPath']['name']);
+        $originalFilename = $_FILES['photoPath']['name'];
+        $extension = pathinfo($originalFilename, PATHINFO_EXTENSION);
+        $uniqueFilename = uniqid() . '.' . $extension;
+        $targetFilePath = $targetDirectory . $uniqueFilename;
+        $photoPath = $uniqueFilename;
+        // $targetFilePath = $targetDirectory . basename($_FILES['photoPath']['name']);
         move_uploaded_file($_FILES['photoPath']['tmp_name'], $targetFilePath);
     }
 
