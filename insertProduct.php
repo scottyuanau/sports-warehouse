@@ -27,14 +27,13 @@ if (isset($_POST['submitInsertProduct'])) {
     // Collection of all errors for this form (no errors by default)
     $errors = [];
 
-
     // Get data passed to this page - $_POST super global array
     $itemName = $_POST["itemName"] ?? "";
     $price = $_POST["price"] ?? "";
     $salePrice = $_POST["salePrice"] ?? null;
     $description = $_POST["description"] ?? "";
-    $categoryId = $_POST["categoryId"] ?? null;
-    $photoPath = $_POST["photoPath"] ?? null;
+    $categoryId = $_POST["category"] ?? null;
+    $photoPath = $_FILES["photoPath"]["name"] ?? null;
     $featured = isset($_POST["featured"]) ? 1 : 0;
 
     // Validate product name
@@ -43,6 +42,14 @@ if (isset($_POST['submitInsertProduct'])) {
     }
 
     // TODO: handle photo upload
+
+
+    //move file to the img folder
+    if ($photoPath !== null) {
+        $targetDirectory = 'img/';
+        $targetFilePath = $targetDirectory . basename($_FILES['photoPath']['name']);
+        move_uploaded_file($_FILES['photoPath']['tmp_name'], $targetFilePath);
+    }
 
     // Check if we have errors (invalid data)
     if (count($errors) > 0) {
@@ -75,7 +82,7 @@ if (isset($_POST['submitInsertProduct'])) {
         $newProductId = $db->executeNonQuery($stmt, true);
 
         // Display confirmation
-        $successMessage = "Product added successfully, new ID: $newProductId";
+        $successMessage = "Product added successfully, new product address:" . $relativeurl . "product.php?id=" . $newProductId;
         include_once "./templates/_success.html.php";
     }
 } else {
@@ -123,6 +130,9 @@ function setSelected($fieldName, $fieldValue)
 {
     return ($_POST[$fieldName] ?? "") === $fieldValue ? "selected" : "";
 }
+
+
+
 
 // Close database connection
 $db->disconnect();

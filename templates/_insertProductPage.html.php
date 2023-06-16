@@ -2,7 +2,7 @@
 
 <?php include "_formErrorSummary.html.php" ?>
 
-<form action="insertProduct.php" method="post" novalidate>
+<form action="insertProduct.php" method="post" enctype="multipart/form-data" novalidate>
   <fieldset>
 
     <div class="form-row">
@@ -25,9 +25,18 @@
       <input type="number" name="salePrice" id="salePrice" min="0" step="0.01" value="<?= setValue("salePrice") ?>">
     </div>
 
-    <div class="form-row">
+    <!-- <div class="form-row">
       <label for="categoryId">Category ID:</label>
       <input type="number" name="categoryId" id="categoryId" value="<?= setValue("categoryId") ?>">
+    </div> -->
+
+    <div class="form-row">
+      <label for="category">Category:</label>
+      <select id="category" name="category">
+        <?php foreach ($categories as $category) : ?>
+          <option value="<?= $category["categoryId"] ?>"><?= $category["categoryName"] ?></option>
+        <?php endforeach ?>
+      </select>
     </div>
 
     <div class="form-row">

@@ -23,6 +23,7 @@
 
 .product__img img {
     display: block;
+    overflow: hidden;
 }
 
 .product__img {
@@ -36,6 +37,7 @@
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     transition: box-shadow 0.3s ease-in-out;
     min-width:400px;
+    overflow: hidden;
 }
 
 .product__img:hover {
