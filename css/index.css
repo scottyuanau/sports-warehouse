@@ -18,6 +18,12 @@ main {
     margin:auto;
 }
 
+.main-content {
+    width: 80%;
+    max-width:1200px;
+    margin:auto;
+}
+
 @media (max-width:750px) {
     main {
         width:100%;

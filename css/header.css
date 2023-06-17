@@ -36,9 +36,10 @@ header {
     cursor: pointer;
     border:0px;
   }
-  .searchbar-icon_inside {
-    color: white;
-  }
+ .searchbar-icon__magnifier {
+  width:15px;
+  height:15px;
+ }
   
   .logo {
     width: 70%;

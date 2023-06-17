@@ -6,7 +6,8 @@
             <input id='searchbox' type='search' name="search" placeholder="Search products" class="searchbar-input" role="searchbox">
 
             <button class="searchbar-icon" type="submit" aria-label="Product search">
-                <i class="fa-solid fa-magnifying-glass searchbar-icon_inside" role="button"></i>
+                <!-- <i class="fa-solid fa-magnifying-glass searchbar-icon_inside" role="button"></i> -->
+                <img class="searchbar-icon__magnifier" src="./img/magnifier.png">
             </button>
         </form>
     </header>

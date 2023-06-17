@@ -9,7 +9,6 @@ footer {
     background-color: var(--sub-color);
     display: flex;
     flex-direction: column;
-    padding-left: 20px;
 }
 
 .footer-product-category {
