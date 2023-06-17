@@ -32,7 +32,7 @@ if (isset($_GET["search"])) {
 
     // search for products
     $sql = <<<SQL
-        SELECT  itemId, itemName, price, description
+        SELECT  itemId, itemName, price, description, photo
         FROM    item
         WHERE   itemName LIKE :search
       SQL;
