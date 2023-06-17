@@ -36,6 +36,11 @@ header {
     cursor: pointer;
     border:0px;
   }
+
+.searchbar-icon:hover {
+  background-color: var(--sub-color);
+}
+
  .searchbar-icon__magnifier {
   width:15px;
   height:15px;

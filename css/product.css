@@ -44,18 +44,6 @@
     animation: shadow-transition 0.3s ease-in-out forwards;
 }
 
-@keyframes shadow-transition {
-    0% {
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-    }
-    50% {
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-    }
-    100% {
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
-    }
-  }
-
 .price__nodiscount {
     font-size: 25px;
     font-weight: 600;
