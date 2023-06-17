@@ -23,7 +23,6 @@ $smstCat = $db->prepareStatement($sqlCategory);
 $categories = $db->executeSQL($smstCat);
 
 
-
 // Check if category ID has been provided
 if (isset($_GET["id"])) {
 
@@ -56,7 +55,7 @@ if (isset($_GET["id"])) {
 
     // Load the category's products
     $sql = <<<SQL
-        SELECT  itemId, itemName, price
+        SELECT  itemId, itemName, price, photo
         FROM    item
         WHERE   categoryId = :categoryId
       SQL;

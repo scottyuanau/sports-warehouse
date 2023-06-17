@@ -1,0 +1,43 @@
+.form-row {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    margin:10px;
+}
+
+@media (max-width:750px) {
+    .form-row {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.form-row input {
+    height:1rem;
+    border-radius: 5px;
+    border:1px solid black;
+    padding:5px;
+    width:100%;
+    max-width: 300px;
+}
+
+input#featured {
+    display: inline-block;
+    width:20px;
+    height:20px;
+}
+
+input#photoPath {
+    border: none;
+    height:20px;
+}
+
+fieldset {
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+#description {
+    border-radius: 5px;
+    border:1px solid black;
+}
+

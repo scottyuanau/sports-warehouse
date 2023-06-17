@@ -1,3 +1,3 @@
-<h2>Category: <?= $categoryName ?? "NONE" ?></h2>
+<h2>Viewing Products from <?= $categoryName ?? "NONE" ?></h2>
 
 <?php include "_products.html.php" ?>
