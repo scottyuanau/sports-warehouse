@@ -56,10 +56,11 @@
 
     <div class="form-row">
       <div class="form-row__left">
-        <label for="photoPath">Product Photo:</label>
+
       </div>
       <div class="form-row__right">
-        <input type="file" name="photoPath" id="photoPath">
+        <label for="photoPath" class="file-label">Upload Photo</label>
+        <input type="file" name="photoPath" id="photoPath" class="file-input">
       </div>
     </div>
 

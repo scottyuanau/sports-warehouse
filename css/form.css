@@ -41,3 +41,41 @@ fieldset {
     border:1px solid black;
 }
 
+select#category {
+    width: 313px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+button {
+    color:white;
+    background-color: var(--button-color);
+    max-width: 200px;
+    height:2.5rem;
+    padding:5px 10px;
+    border:0px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--main-color);
+}
+
+.file-input {
+    display: none;
+  }
+  
+  .file-label {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--button-color);
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .file-label:hover {
+    background-color: var(--main-color);
+  }

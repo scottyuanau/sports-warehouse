@@ -10,6 +10,7 @@
 @import url("product.css");
 @import url("category.css");
 @import url("form.css");
+@import url("error.css");
 
 main {
     width: 80%;

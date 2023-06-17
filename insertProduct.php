@@ -41,6 +41,12 @@ if (isset($_POST['submitInsertProduct'])) {
         $errors["itemName"] = "Product name cannot be empty.";
     }
 
+    // Validate sale price
+    if ($salePrice > $price) {
+        $errors["price"] = "Sale Price must be less than original price.";
+    }
+
+
     // TODO: handle photo upload
 
 
