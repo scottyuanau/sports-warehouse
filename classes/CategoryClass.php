@@ -97,13 +97,18 @@ class Category
       // Execute query
       $rows = $this->_db->executeSQL($stmt);
 
+      //check if the category exists
+      if (count($rows) ===0 ) {
+        return false;
+      }
+
       // Get the first (and only) row - we are searching by a unique primary key
       $row = $rows[0];
 
       // Populate the private properties with the retrieved values
       $this->_categoryId = $row["categoryId"];
       $this->_categoryName = $row["categoryName"];
-
+      return true;
     } catch (PDOException $e) {
       
       // Throw the exception back up a level (don't handle it here)
