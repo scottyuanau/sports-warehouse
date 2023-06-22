@@ -15,6 +15,8 @@ class Product
     private $_salePrice;
     private $_description;
     private $_photo;
+    private $_categoryId;
+    private $_featured;
     private $_db;
 
   #endregion
@@ -129,6 +131,26 @@ class Product
       return $this->_description;
     }
 
+    /**
+     * Get product category ID
+     *
+     * @return int The product category ID
+     */
+    public function getCategoryId()
+    {
+      return $this->_categoryId;
+    }
+
+    /**
+     * Get product featured status
+     *
+     * @return int The product featured status, 1 means the product is featured and 0 means it is not.
+     */
+    public function getFeatured()
+    {
+      return $this->_featured;
+    }
+
   #endregion
 
   #region Methods
@@ -137,7 +159,7 @@ class Product
      * Get a product by ID and populate the object's properties
      *
      * @param  int $id The ID of the product to get
-     * @return void
+     * @return bool returns true if the product is found, and false if product doesn't exist.
      */
     public function getProduct($id)
     {
@@ -174,6 +196,8 @@ class Product
         $this->_photo = $row["photo"];
         $this->_salePrice = $row["salePrice"];
         $this->_description = $row["description"];
+        $this->_categoryId = $row["categoryId"];
+        $this->_featured = $row["featured"];
 
         // Product exists
       return true;
