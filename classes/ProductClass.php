@@ -99,6 +99,36 @@ class Product
       $this->_unitPrice = $unitPrice;
     }
 
+    /**
+     * Get product sale price
+     *
+     * @return string The product sale price
+     */
+    public function getSalePrice()
+    {
+      return $this->_salePrice;
+    }
+
+    /**
+     * Get product photo
+     *
+     * @return string The product photo
+     */
+    public function getPhoto()
+    {
+      return $this->_photo;
+    }
+
+    /**
+     * Get product description
+     *
+     * @return string The product description
+     */
+    public function getDescription()
+    {
+      return $this->_description;
+    }
+
   #endregion
 
   #region Methods
@@ -128,6 +158,12 @@ class Product
         // Execute query
         $rows = $this->_db->executeSQL($stmt);
 
+        // Check if any rows are returned
+        if (count($rows) === 0) {
+          // Product does not exist
+          return false;
+        }
+
         // Get the first (and only) row - we are searching by a unique primary key
         $row = $rows[0];
 
@@ -135,6 +171,12 @@ class Product
         $this->_itemId = $row["itemId"];
         $this->_itemName = $row["itemName"];
         $this->_unitPrice = $row["price"];
+        $this->_photo = $row["photo"];
+        $this->_salePrice = $row["salePrice"];
+        $this->_description = $row["description"];
+
+        // Product exists
+      return true;
 
       } catch (PDOException $e) {
         

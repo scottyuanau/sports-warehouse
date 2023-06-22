@@ -3,6 +3,7 @@
 // Database connection (create instance of DBAccess class)
 // $db is our DBAccess instance
 require_once "./includes/database.php";
+require_once "./classes/ProductClass.php";
 
 // Open database connection
 $db->connect();
@@ -29,32 +30,18 @@ if (isset($_GET["id"])) {
   // Validate/sanitise the ID
   $itemId = intval($_GET["id"]);
 
-  // Search for the product in the DB
-  $sql = <<<SQL
-      SELECT  itemId, itemName, photo, price, salePrice, description, featured, categoryId
-      FROM    item
-      WHERE   itemId = :itemId
-    SQL;
-
-  // Prepare the SQL statement
-  $stmt = $db->prepareStatement($sql);
-
-  // Add/bind parameter values
-  $stmt->bindValue(":itemId", $itemId, PDO::PARAM_INT);
-
   // Get the product name from the product ID
-  $product = $db->executeSQL($stmt);
+
+  $product = new Product();
+  $productExistence = $product->getProduct($itemId);
 
   // Check if product does NOT exist
-  if (empty($product)) {
+  if (!$productExistence) {
 
     // Display error
     $errorMessage = "Product does not exist.";
     include "./templates/_error.html.php";
   } else {
-
-    // Extract first and only row
-    $product = $product[0];
 
     // Include the page-specific template
     include_once "./templates/_productPage.html.php";
