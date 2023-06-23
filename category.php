@@ -25,46 +25,24 @@ if (isset($_GET["id"])) {
   // Validate/sanitise the ID
   $categoryId = intval($_GET["id"]);
 
-  // Search for the category in the DB
-  $sql = <<<SQL
-      SELECT  CategoryName
-      FROM    category
-      WHERE   CategoryID = :categoryId
-    SQL;
-
-  // Prepare the SQL statement
-  $stmt = $db->prepareStatement($sql);
-
-  // Add/bind parameter values
-  $stmt->bindValue(":categoryId", $categoryId, PDO::PARAM_INT);
-
   // Get the category name from the category ID
-  $categoryName = $db->executeSQLReturnOneValue($stmt);
+  
+  $categoryObj->getCategory($categoryId);
+  $categoryName = $categoryObj->getCategoryName();
 
   // Check if category does NOT exist
-  if ($categoryName === false) {
+  if ($categoryName === null) {
 
     // Display error
     $errorMessage = "Category does not exist.";
     include "./templates/_error.html.php";
   } else {
 
-    // Load the category's products
-    $sql = <<<SQL
-        SELECT  itemId, itemName, price, photo
-        FROM    item
-        WHERE   categoryId = :categoryId
-      SQL;
-
-    // Prepare the SQL statement
-    $stmt = $db->prepareStatement($sql);
-
-    // Add/bind parameter values
-    $stmt->bindValue(":categoryId", $categoryId, PDO::PARAM_INT);
-
+  
     // Get the list of products
-    $products = $db->executeSQL($stmt);
-
+   
+    $products = $categoryObj->getProducts($categoryId);
+    
     // Include the page-specific template
     include_once "./templates/_categoryPage.html.php";
   }

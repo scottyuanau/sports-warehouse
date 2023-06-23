@@ -117,6 +117,40 @@ class Category
   }
 
   /**
+   * Get products from a given category
+   * @param int $id The id of the category
+   * @return array The collection of products within the given category
+   */
+  public function getProducts($id)
+  {
+    try {
+      // Open database connection
+      $this->_db->connect();
+
+      // Define SQL query, prepare statement, bind parameters
+      $sql = <<<SQL
+        SELECT  itemId, itemName, price, photo
+        FROM    item
+        WHERE   categoryId = :categoryId
+      SQL;
+
+      // Prepare the SQL statement
+      $stmt = $this->_db->prepareStatement($sql);
+
+      // Add/bind parameter values
+      $stmt->bindValue(":categoryId", $id, PDO::PARAM_INT);
+
+      // Execute SQL
+      $rows = $this->_db->executeSQL($stmt);
+      return $rows;
+
+    } catch (PDOException $e) {
+      throw $e;
+    }
+  }
+
+
+  /**
    * Get all categories
    *
    * @return array The collection of categories
