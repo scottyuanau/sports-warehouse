@@ -1,7 +1,7 @@
 <?php
 
-require_once "CartItemClass.php";
-require_once "DBAccess.php";
+require_once "./classes/CartItemClass.php";
+require_once "./classes/DBAcess.php";
 
 /**
  * Defines a shopping cart (collection of items)

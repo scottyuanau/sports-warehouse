@@ -1,4 +1,6 @@
 <?php
+// start session
+session_start();
 
 // Database connection (create instance of DBAccess class)
 // $db is our DBAccess instance

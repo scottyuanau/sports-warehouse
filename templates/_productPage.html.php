@@ -5,6 +5,7 @@ $price = $product->getUnitPrice();
 $salePrice = $product->getSalePrice();
 $photo = $product->getPhoto();
 $description = $product->getDescription();
+$productId = $product->getProductId();
 ?>
 
 <div class="product">
@@ -27,6 +28,13 @@ $description = $product->getDescription();
                 <span class='price__nodiscount'><?= sprintf('$%1.2f', $price ?? "--") ?></span>
             <?php endif ?>
         </div>
+        <form action="cart.php" method="post">
+            <input type="hidden" name="itemId" value=<?=$productId ?>>
+                <input type="number" name="qty" min="1" value="1" aria-label="Quantity" title="Quantity">
+                <button type="submit" name="submitAddToCart">Add to Cart</button>
+
+        </form>
+
         <div class="product__description">
             <?= $description ?? "--" ?>
         </div>

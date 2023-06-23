@@ -21,7 +21,7 @@
     <div class="usercontrol">
         <div class="cart">
             <i class="fa-solid fa-cart-shopping"></i>
-            <a href="">View Cart</a>
+            <a href="./cart.php">View Cart</a>
         </div>
         <div class="cart-items">
             <a href="">0 items</a>
