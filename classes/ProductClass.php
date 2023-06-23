@@ -279,7 +279,6 @@ class Product
         $sql = <<<SQL
         SELECT  itemId, itemName, photo, price, salePrice, description, featured, categoryId
         FROM    item
-        WHERE   itemId = :itemId
         SQL;
         $stmt = $this->_db->prepareStatement($sql);
 
@@ -352,6 +351,73 @@ class Product
 
       // Execute SQL setting the second parameter to true means the primary key will be returned
       $value = $this->_db->executeNonQuery($stmt, true);
+      return $value;
+
+    } catch (PDOException $e) {
+      throw $e;
+    }
+  }
+
+  /**
+   * Delete a product by ID
+   *
+   * @param  int $id The ID of the product to delete
+   * @return bool True if delete successful
+   */
+  public function deleteProduct($id)
+  {
+    try {
+      // Open database connection
+      $this->_db->connect();
+
+      // Define SQL query, prepare statement, bind parameters
+      $sql = <<<SQL
+        DELETE
+        FROM    item
+        WHERE   itemId = :itemId
+      SQL;
+      $stmt = $this->_db->prepareStatement($sql);
+      $stmt->bindParam(":itemId", $id, PDO::PARAM_INT);
+
+      // Execute SQL
+      $value = $this->_db->executeNonQuery($stmt, false);
+      return $value;
+
+    } catch (PDOException $e) {
+      throw $e;
+    }
+  }
+
+  /**
+   * Update a product by ID using values in object properties
+   *
+   * @param  int $id The ID of the product to update
+   * @return bool True if update successful
+   */
+  public function updateProduct($id)
+  {
+    try {
+      // Open database connection
+      $this->_db->connect();
+
+      // Define SQL query, prepare statement, bind parameters
+      $sql = <<<SQL
+        UPDATE  item
+        SET     itemName = :itemName, price = :unitPrice, salePrice = :salePrice, description = :description, categoryId = :categoryId, photo = :photo, featured = :featured
+        WHERE   itemId = :itemId
+      SQL;
+      $stmt = $this->_db->prepareStatement($sql);
+      $stmt->bindParam(":itemName", $this->_itemName, PDO::PARAM_STR);
+      $stmt->bindParam(":unitPrice", $this->_unitPrice, PDO::PARAM_STR);
+      $stmt->bindParam(":itemId", $id, PDO::PARAM_INT);
+      $stmt->bindValue(":salePrice", $this->_salePrice, PDO::PARAM_STR);
+      $stmt->bindValue(":description", $this->_description, PDO::PARAM_STR);
+      $stmt->bindValue(":categoryId", $this->_categoryId, PDO::PARAM_INT);
+      $stmt->bindValue(":photo", $this->_photo, PDO::PARAM_STR);
+      $stmt->bindValue(":featured", $this->_featured, PDO::PARAM_INT);
+
+      // Execute SQL
+      $value = $this->_db->executeNonQuery($stmt, false);
       return $value;
 
     } catch (PDOException $e) {

@@ -281,7 +281,7 @@ class Category
       $sql = <<<SQL
         DELETE
         FROM    category
-        WHERE   categoryId = :CategoryId
+        WHERE   categoryId = :categoryId
       SQL;
       $stmt = $this->_db->prepareStatement($sql);
       $stmt->bindParam(":categoryId", $id, PDO::PARAM_INT);

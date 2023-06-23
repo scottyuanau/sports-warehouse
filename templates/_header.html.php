@@ -1,3 +1,12 @@
+<?php
+require_once "./classes/CategoryClass.php";
+
+$categoryObj = new Category();
+$categories = $categoryObj->getCategories();
+
+?>
+
+
 <div class="header-wrapper">
     <header>
         <a href="index.php" class="logo__link"><img src='img/logo.png' alt='site-logo' class='logo'></a>

@@ -8,7 +8,7 @@ require_once "classes/DBAcess.php";
 if (
     $_SERVER['SERVER_NAME'] === 'localhost' ||
     $_SERVER['Server_ADDR'] === "127.0.0.1" ||
-    $_SERVER['Server_ADDR'] === "::1"
+    $_SERVER['Server_ADDR'] === "::1" 
 ) {
     // database config - local
     $dbServer = "localhost";

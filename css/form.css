@@ -1,81 +1,102 @@
 .form-row {
-    display: grid;
-    grid-template-columns: 30% 70%;
-    margin:10px;
+  display: grid;
+  grid-template-columns: 30% 70%;
+  margin: 10px;
 }
 
-@media (max-width:750px) {
-    .form-row {
-        display: flex;
-        flex-direction: column;
-    }
+@media (max-width: 750px) {
+  .form-row {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .form-row input {
-    height:1rem;
-    border-radius: 5px;
-    border:1px solid black;
-    padding:5px;
-    width:100%;
-    max-width: 300px;
+  height: 1rem;
+  border-radius: 5px;
+  border: 1px solid black;
+  padding: 5px;
+  width: 100%;
+  max-width: 300px;
 }
 
 input#featured {
-    display: inline-block;
-    width:20px;
-    height:20px;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
 }
 
 input#photoPath {
-    border: none;
-    height:20px;
+  border: none;
+  height: 20px;
 }
 
 fieldset {
-    border: 1px solid black;
-    border-radius: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
 }
 
 #description {
-    border-radius: 5px;
-    border:1px solid black;
+  border-radius: 5px;
+  border: 1px solid black;
 }
 
 select#category {
-    width: 313px;
-    height: 30px;
-    border-radius: 5px;
-    border: 1px solid black;
+  width: 313px;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid black;
 }
 
 button {
-    color:white;
-    background-color: var(--button-color);
-    max-width: 200px;
-    height:2.5rem;
-    padding:5px 10px;
-    border:0px;
-    border-radius: 5px;
-    cursor: pointer;
+  color: white;
+  background-color: var(--button-color);
+  max-width: 200px;
+  height: 2.5rem;
+  padding: 5px 10px;
+  border: 0px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 button:hover {
-    background-color: var(--main-color);
+  background-color: var(--main-color);
 }
 
 .file-input {
-    display: none;
-  }
-  
-  .file-label {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: var(--button-color);
-    color: white;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  
-  .file-label:hover {
-    background-color: var(--main-color);
-  }
+  display: none;
+}
+
+.file-label {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: var(--button-color);
+  color: white;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.file-label:hover {
+  background-color: var(--main-color);
+}
+
+.admin_manageProducts {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin_manageProducts input {
+  display: block;
+}
+
+.container-manageProducts {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.button-area {
+  display: flex;
+  gap: 10px;
+  margin: 5px;
+}

@@ -17,18 +17,17 @@ $title = "Products by category";
 ob_start();
 
 
-//list the categories
-$categoryObj = new Category();
-$categories = $categoryObj->getCategories();
+
 
 // Check if category ID has been provided
 if (isset($_GET["id"])) {
-
+  
   // Validate/sanitise the ID
   $categoryId = intval($_GET["id"]);
-
+  
   // Get the category name from the category ID
   
+  $categoryObj = new Category();
   $categoryObj->getCategory($categoryId);
   $categoryName = $categoryObj->getCategoryName();
 

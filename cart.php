@@ -1,18 +1,21 @@
 <?php
-// start session
-session_start();
-
 // Database connection (create instance of DBAccess class)
 // $db is our DBAccess instance
 require_once "./includes/database.php";
 require_once "./classes/CategoryClass.php";
 require_once "./classes/ShoppingCart.php";
+require_once "./classes/CartItemClass.php";
+require_once "./classes/ProductClass.php";
+// start session
+session_start();
 
 // Open database connection
 $db->connect();
-
 // Config
 $title = "Shopping Cart";
+
+// Get shopping cart from the session (create a new cart if it doesn't exist)
+$cart = $_SESSION["cart"] ?? new ShoppingCart();
 
 // Start output buffering
 ob_start();
@@ -42,9 +45,66 @@ if (isset($_POST['submitAddToCart'])) {
     if (count($errors) === 0) {
 
     // Valid - add the item to the shopping cart
-      
+    try {
+    //Get product using the ID
+    $product = new Product();
+    $product->getProduct($itemId);
+    $productName = $product->getProductName();
+    $unitPrice = $product->getUnitPrice();
+    $salePrice = $product->getSalePrice();
+
+    // determine which price to be used to include in the cart
+    if ($unitPrice != 0 && $salePrice !== null){
+        $price = $salePrice;
+    } else if ($unitPrice == 0 || $salePrice === null) {
+        $price = $unitPrice;
     }
-} 
+        
+
+    // Create a new CartItem
+    $item = new CartItem($productName, $qty, $price, $itemId);
+
+    // Add item to the shopping cart
+    $cart->addItem($item);
+
+    //update global variable
+    $cartCount = $cart->count();
+
+    // save the shopping cart into the session
+    $_SESSION["cart"] = $cart;
+
+    } catch(Exception $err) {
+        $error["exception"] = "Error adding to cart: ". $err->getMessage();
+    }
+    }
+} else if (isset($_POST['submitRemoveFromCart'])) {
+
+    //Remove item from shopping cart
+    $itemId = $_POST["itemId"] ?? 0;
+
+    try {
+        //get product name from the id
+        $product = new Product();
+        $product->getProduct($itemId);
+        $productName = $product->getProductName();
+
+        
+        // Create a new CartItem
+        $item = new CartItem($productName, 0, 0, $itemId);
+
+        // Remove item from the shopping cart
+        $cart->removeItem($item);
+
+        //update global variable
+        $cartCount = $cart->count();
+
+        // Save the shopping cart into the session
+        $_SESSION["cart"] = $cart;
+    } catch(Exception $err) {
+        $error["exception"] = "Error removing from cart: ". $err->getMessage();
+    }
+
+}
 // Display the shopping cart
 include_once "./templates/_cartPage.html.php";
 

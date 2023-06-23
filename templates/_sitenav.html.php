@@ -26,5 +26,8 @@
         <div class="cart-items">
             <a href="">0 items</a>
         </div>
+        <div class="admin">
+            <a href="./admin.php">Admin</a>
+        </div>
     </div>
 </div>

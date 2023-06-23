@@ -5,6 +5,7 @@ session_start();
 // Database connection (create instance of DBAccess class)
 // $db is our DBAccess instance
 require_once "./includes/database.php";
+require_once "./classes/CategoryClass.php";
 
 // Open database connection
 $db->connect();
@@ -17,12 +18,8 @@ ob_start();
 
 
 //list the categories
-$sqlCategory = <<<SQL
-SELECT categoryName, categoryId
-FROM category
-SQL;
-$smstCat = $db->prepareStatement($sqlCategory);
-$categories = $db->executeSQL($smstCat);
+$categoryObj = new Category();
+$categories = $categoryObj->getCategories();
 
 
 

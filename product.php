@@ -17,9 +17,6 @@ $title = "Product details";
 // Start output buffering
 ob_start();
 
-//list the categories
-$categoryObj = new Category();
-$categories = $categoryObj->getCategories();
 
 // Check if product ID has been provided
 if (isset($_GET["id"])) {
