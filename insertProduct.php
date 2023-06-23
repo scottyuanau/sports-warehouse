@@ -3,6 +3,8 @@
 // Database connection (create instance of DBAccess class)
 // $db is our DBAccess instance
 require_once "./includes/database.php";
+require_once "./classes/CategoryClass.php";
+require_once "./classes/ProductClass.php";
 
 // Open database connection
 $db->connect();
@@ -14,12 +16,8 @@ $title = "Add a new product";
 ob_start();
 
 //list the categories
-$sqlCategory = <<<SQL
-    SELECT categoryName, categoryId
-    FROM category
-    SQL;
-$smstCat = $db->prepareStatement($sqlCategory);
-$categories = $db->executeSQL($smstCat);
+$categoryObj = new Category();
+$categories = $categoryObj->getCategories();
 
 // Check if form has been submitted
 if (isset($_POST['submitInsertProduct'])) {
@@ -69,29 +67,20 @@ if (isset($_POST['submitInsertProduct'])) {
         include_once "./templates/_insertProductPage.html.php";
     } else {
 
-        // Valid - add the employee to the database
+        // Valid - add the product to the database
 
-        // Define SQL query
-        $sql = <<<SQL
-        INSERT INTO item (itemName, price, salePrice, description, categoryId, photo, featured)
-        VALUES (:ItemName, :Price, :SalePrice, :Description, :CategoryId, :Photo, :Featured)
-      SQL;
+        // Create a new product object and set the properties to the correct value
+        $newProductObj = new Product();
+        $newProductObj->setProductName($itemName);
+        $newProductObj->setUnitPrice($price);
+        $newProductObj->setSalePrice($salePrice);
+        $newProductObj->setDescription($description);
+        $newProductObj->setCategoryId($categoryId);
+        $newProductObj->setPhoto($photoPath);
+        $newProductObj->setFeatured($featured);
 
-        // Prepare the SQL statement
-        $stmt = $db->prepareStatement($sql);
-
-        // Add/bind parameter values
-        $stmt->bindValue(":ItemName", $itemName, PDO::PARAM_STR);
-        $stmt->bindValue(":Price", $price, PDO::PARAM_STR);
-        $stmt->bindValue(":SalePrice", $salePrice, PDO::PARAM_STR);
-        $stmt->bindValue(":Description", $description, PDO::PARAM_STR);
-        $stmt->bindValue(":CategoryId", $categoryId, PDO::PARAM_INT);
-        $stmt->bindValue(":Photo", $photoPath, PDO::PARAM_STR);
-        $stmt->bindValue(":Featured", $featured, PDO::PARAM_INT);
-
-        // Insert the employee
-        $newProductId = $db->executeNonQuery($stmt, true);
-
+        // Insert the product
+        $newProductId = $newProductObj->insertProduct();
         // Display confirmation
         $successMessage = "Product added successfully, new product address:" . $relativeurl . "product.php?id=" . $newProductId;
         include_once "./templates/_success.html.php";

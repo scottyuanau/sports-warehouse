@@ -111,6 +111,17 @@ class Product
       return $this->_salePrice;
     }
 
+     /**
+     * Set product sale price
+     * @param  string $salePrice The new sale price
+     * @return void
+     */
+    public function setSalePrice($salePrice)
+    {
+      $this->_salePrice = $salePrice;
+    }
+
+
     /**
      * Get product photo
      *
@@ -120,6 +131,17 @@ class Product
     {
       return $this->_photo;
     }
+
+    /**
+     * Set product photo
+     * @param  string $photo The photo of the product
+     * @return void
+     */
+    public function setPhoto($photo)
+    {
+      $this->_photo = $photo;
+    }
+
 
     /**
      * Get product description
@@ -132,6 +154,17 @@ class Product
     }
 
     /**
+     * Set product description
+     * @param  string $description The description of the product
+     * @return void
+     */
+    public function setDescription($description)
+    {
+      $this->_description = $description;
+    }
+
+
+    /**
      * Get product category ID
      *
      * @return int The product category ID
@@ -142,6 +175,17 @@ class Product
     }
 
     /**
+     * Set product category ID
+     * @param  int $id The category id of the product
+     * @return void
+     */
+    public function setCategoryId($id)
+    {
+      $this->_categoryId = $id;
+    }
+
+
+    /**
      * Get product featured status
      *
      * @return int The product featured status, 1 means the product is featured and 0 means it is not.
@@ -149,6 +193,16 @@ class Product
     public function getFeatured()
     {
       return $this->_featured;
+    }
+
+    /**
+     * Set product featured status
+     * @param  int $featured The featured status of the product, 1 means featured and 0 means not.
+     * @return void
+     */
+    public function setFeatured($featured)
+    {
+      $this->_featured = $featured;
     }
 
   #endregion
@@ -266,6 +320,45 @@ class Product
       }
     }
     
+
+
+    /**
+   * Insert Product
+   *
+   * @return int The ID of the new category
+   */
+  public function insertProduct()
+  {
+    try {
+      // Open database connection
+      $this->_db->connect();
+
+      // Define SQL query, prepare statement, bind parameters
+      $sql = <<<SQL
+        INSERT INTO item (itemName, price, salePrice, description, categoryId, photo, featured)
+        VALUES (:ItemName, :Price, :SalePrice, :Description, :CategoryId, :Photo, :Featured)
+      SQL;
+
+      // Prepare the SQL statement
+      $stmt = $this->_db->prepareStatement($sql);
+
+      $stmt->bindValue(":ItemName", $this->_itemName, PDO::PARAM_STR);
+        $stmt->bindValue(":Price", $this->_unitPrice, PDO::PARAM_STR);
+        $stmt->bindValue(":SalePrice", $this->_salePrice, PDO::PARAM_STR);
+        $stmt->bindValue(":Description", $this->_description, PDO::PARAM_STR);
+        $stmt->bindValue(":CategoryId", $this->_categoryId, PDO::PARAM_INT);
+        $stmt->bindValue(":Photo", $this->_photo, PDO::PARAM_STR);
+        $stmt->bindValue(":Featured", $this->_featured, PDO::PARAM_INT);
+
+      // Execute SQL setting the second parameter to true means the primary key will be returned
+      $value = $this->_db->executeNonQuery($stmt, true);
+      return $value;
+
+    } catch (PDOException $e) {
+      throw $e;
+    }
+  }
+
   #endregion
 
 }
