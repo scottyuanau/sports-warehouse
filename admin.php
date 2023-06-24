@@ -90,7 +90,12 @@ if (isset($_POST['submitRemoveFromProducts'])) {
   $newSalePrice = $_POST["salePrice"];
   $newPhoto = $_POST["photo"];
   $newCategoryId = $_POST["categoryId"];
-  $newFeatured= $_POST["featured"];
+//   $newFeatured= $_POST["featured"];
+    $newFeatured = 0;
+    if(isset($_POST["featured"])) {
+        $newFeatured = 1;
+    }
+
   $newDescription = $_POST["description"];
 
   try {
