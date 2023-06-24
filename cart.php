@@ -67,11 +67,10 @@ if (isset($_POST['submitAddToCart'])) {
     // Add item to the shopping cart
     $cart->addItem($item);
 
-    //update global variable
-    $cartCount = $cart->count();
 
     // save the shopping cart into the session
     $_SESSION["cart"] = $cart;
+    $_SESSION["cartItem"] = $cart->count();
 
     } catch(Exception $err) {
         $error["exception"] = "Error adding to cart: ". $err->getMessage();
@@ -100,6 +99,7 @@ if (isset($_POST['submitAddToCart'])) {
 
         // Save the shopping cart into the session
         $_SESSION["cart"] = $cart;
+        $_SESSION["cartItem"] = $cart->count();
     } catch(Exception $err) {
         $error["exception"] = "Error removing from cart: ". $err->getMessage();
     }

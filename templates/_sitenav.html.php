@@ -24,7 +24,7 @@
             <a href="./cart.php">View Cart</a>
         </div>
         <div class="cart-items">
-            <a href="">0 items</a>
+            <a href=""><?= $_SESSION["cartItem"] ?? 0 ?> items</a>
         </div>
         <div class="admin">
             <a href="./admin.php">Admin</a>
