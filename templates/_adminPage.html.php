@@ -9,7 +9,12 @@
            <label for="price">Price</label> <input name="price" value=<?= $product["price"]?>>
            <label for="salePrice">Sale Price</label> <input name="salePrice" value=<?= $product["salePrice"]?>>
            <label for="photo">Photo</label> <input name="photo" value=<?= $product["photo"]?>>
-           <label for="categoryId">Category Id</label> <input name="categoryId" value=<?= $product["categoryId"]?>>
+           <label for="categoryId">Category Id</label> 
+           <select id="category" name="categoryId">
+          <?php foreach ($categoryList as $category) : ?>
+            <option value="<?= $category["categoryId"] ?>" <?= $category["categoryId"] === $product["categoryId"]? "Selected" : ""?>><?= $category["categoryName"] ?></option>
+          <?php endforeach ?>
+        </select>
            <label for="featured">Featured</label> <input name="featured" value=<?= $product["featured"]?>>
            <label for="description">Description</label> <textarea name="description" rows="5"><?= $product["description"]?></textarea>
            <input type="hidden" name="itemId" value=<?= $product["itemId"]?>>
