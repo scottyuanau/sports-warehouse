@@ -1,9 +1,19 @@
 .error-summary {
-    border:2px solid rgb(138, 0, 0);
-    color:rgb(138, 0, 0);
-    font-weight: 600;
-    background-color: rgb(249, 178, 178);
-    border-radius: 5px;
-    margin-bottom:10px;
-    padding:10px;
+  border: 2px solid rgb(138, 0, 0);
+  color: rgb(138, 0, 0);
+  font-weight: 600;
+  background-color: rgb(249, 178, 178);
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.success-summary {
+  border: 2px solid rgb(0, 138, 2);
+  color: rgb(0, 138, 2);
+  font-weight: 600;
+  background-color: rgb(139, 221, 140);
+  border-radius: 5px;
+  margin-bottom: 10px;
+  padding: 10px;
 }

@@ -1,7 +1,6 @@
 <?php
 // start session
 session_start();
-
 // Database connection (create instance of DBAccess class)
 // $db is our DBAccess instance
 require_once "./includes/database.php";
@@ -10,12 +9,27 @@ require_once "./classes/CategoryClass.php";
 
 // Open database connection
 $db->connect();
-
 // Config
 $title = "Admin";
 
 // Start output buffering
 ob_start();
+
+// if user is not logged in, redirect to the login page
+if (!isset($_SESSION['user'])) {
+    header("Location: login.php");
+}
+
+// if user is not admin, advise user that only admin is allowed
+if ($_SESSION['user'] !== 2) {
+    echo "Only admin is allowed to access this page";
+}
+
+
+
+// Check if the user is not logged in as admin (user id is 2)
+if (isset($_SESSION['user']) && $_SESSION['user'] === 2 ) {
+
 
 // New product object
 $productObj = new Product();
@@ -135,6 +149,8 @@ if (count($errors) > 0) {
 include_once "./templates/_adminPage.html.php";
 
 
+
+} 
 // Stop output buffering
 $output = ob_get_clean();
 

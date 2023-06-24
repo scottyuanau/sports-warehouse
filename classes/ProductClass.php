@@ -2,7 +2,7 @@
 
 /**
  * Defines a Product
- * NOTE: THIS IS ONLY A PARTIAL IMPLEMENTATION - NO INSERT, UPDATE, DELETE, ETC
+ * 
  */
 class Product
 {

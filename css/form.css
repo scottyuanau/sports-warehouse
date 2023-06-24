@@ -118,3 +118,38 @@ button:hover {
   gap: 10px;
   margin: 5px;
 }
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  gap: 10px;
+}
+
+.login-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 600px;
+  justify-content: center;
+  align-items: center;
+}
+
+.button_changePassword {
+  margin-top: 10px;
+  width: 174.5px;
+}
+
+.changepassword-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 600px;
+}
+
+.changepassword-wrapper form {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  gap: 10px;
+}

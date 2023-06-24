@@ -1,25 +1,13 @@
 <?php
-// start session
 session_start();
-
-// Database connection (create instance of DBAccess class)
-// $db is our DBAccess instance
 require_once "./includes/database.php";
-
-// Open database connection
-$db->connect();
-
-
-
-
-// Config
-$title = "Contact us";
-
 // Start output buffering
 ob_start();
 
 
-include_once "./templates/_contactPage.html.php";
+session_destroy();
+$currentAddress = $_SERVER['REQUEST_URI'];
+header("Location: index.php");
 
 
 // Stop output buffering
@@ -30,3 +18,5 @@ include_once "./templates/_layout.html.php";
 
 // Close database connection
 $db->disconnect();
+
+?>
