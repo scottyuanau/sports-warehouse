@@ -106,7 +106,11 @@ if (isset($_POST['submitAddToCart'])) {
 
 }
 // Display the shopping cart
-include_once "./templates/_cartPage.html.php";
+if (empty($_SESSION["cartItem"])) {
+    include_once "./templates/_cartPageEmpty.html.php";
+} else {
+    include_once "./templates/_cartPage.html.php";
+}
 
 
 // Stop output buffering

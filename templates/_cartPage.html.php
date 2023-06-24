@@ -21,5 +21,6 @@
         </form></td>
     </tr>
 
-    <?php endforeach ?>
+<?php endforeach ?>
+    <td>Total Amount: $<?= $cart->calculateTotal()?></td>
 </table>
