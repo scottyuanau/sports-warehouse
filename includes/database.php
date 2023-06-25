@@ -18,10 +18,10 @@ if (
     $relativeurl = $_SERVER['SERVER_NAME'] . ":8080/sports-warehouse/";
 } else {
     // database config - remote
-    $dbServer = "localhost";
-    $dbDatabase = "sportswh";
-    $dbUsername = "root";
-    $dbPassword = "";
+    $dbServer = "sql209.infinityfree.com";
+    $dbDatabase = "if0_34496115_sports_warehouse";
+    $dbUsername = "if0_34496115";
+    $dbPassword = "IhFUpVKbzp";
     $relativeurl = $_SERVER['SERVER_NAME'] . "/";
 }
 

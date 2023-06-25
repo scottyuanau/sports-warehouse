@@ -1,7 +1,6 @@
 <?php
 
 require_once "./classes/CartItemClass.php";
-require_once "./classes/DBAcess.php";
 
 /**
  * Defines a shopping cart (collection of items)
@@ -105,13 +104,19 @@ class ShoppingCart
     // Save cart
     public function saveCart($address, $contactNumber, $creditCardNumber, $cSV, $email, $expiryDate, $firstName, $lastName, $nameOnCard)
     {
-      
+      try{
+      // Open database connection
+      $this->_db->connect();
 
       // Set up SQL statement to insert order
-      $sql = "insert into ShoppingOrder(Address, ContactNumber, CreditCardNumber, CSV, Email, ExpiryDate, FirstName, LastName, NameOnCard, OrderDate) values(:Address, :ContactNumber, :CreditCardNumber, :CSV, :Email, :ExpiryDate, :FirstName, :LastName, :NameOnCard, curdate())";
-    
+      $sql = <<<SQL
+      INSERT INTO shoppingorder (address, contactNumber, creditCardNumber, csv, email, expiryDate, firstName, lastName, nameOnCard, orderDate) 
+      VALUES (:Address, :ContactNumber, :CreditCardNumber, :CSV, :Email, :ExpiryDate, :FirstName, :LastName, :NameOnCard, curdate())
+      SQL;
+
       // Prepare statement and bind values
       $stmt = $this->_db->prepareStatement($sql);
+
       $stmt->bindValue(":Address" , $address, PDO::PARAM_STR);
       $stmt->bindValue(":ContactNumber" , $contactNumber, PDO::PARAM_STR);
       $stmt->bindValue(":CreditCardNumber" , $creditCardNumber, PDO::PARAM_STR);
@@ -124,9 +129,11 @@ class ShoppingCart
       
       $shoppingOrderId = $this->_db->executeNonQuery($stmt, true);
 
-
       // Set up insert statement to run for EACH item in the cart
-      $sql = "insert into OrderItem(ItemID, Price, Quantity, shoppingOrderID) 	values(:ItemID, :Price, :Quantity, :shoppingOrderID)";
+      $sql = <<<SQL
+      INSERT INTO orderitem (itemId, price, quantity, shoppingOrderId) 	
+      VALUES (:ItemID, :Price, :Quantity, :shoppingOrderID)
+      SQL;
 
       // Prepare statement (bind values later inside loop for EACH item)
       $stmt = $this->_db->prepareStatement($sql);
@@ -144,7 +151,11 @@ class ShoppingCart
         $this->_db->executeNonQuery($stmt);
       }
 
-      return $shoppingOrderId;
+      return $shoppingOrderId; 
+    } catch (Exception $e) {
+      throw $e;
+    }
+    
     }
 
     private function inCart($cartItem)

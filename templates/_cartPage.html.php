@@ -24,3 +24,15 @@
 <?php endforeach ?>
     <td>Total Amount: $<?= $cart->calculateTotal()?></td>
 </table>
+
+<!-- <form action="checkout.php" method="post">
+    <?php foreach ($cart->getItems() as $item): ?>
+        <input type="hidden" name="<?= "itemName".$item->getItemId();?>" value=<?= $item->getItemId();?>>
+        <input type="hidden" name="<?= "price".$item->getItemId();?>" value=<?= $item->getPrice();?>>
+        <input type="hidden" name="<?= "quantity".$item->getItemId();?>" value=<?= $item->getQuantity();?>>
+    <?php endforeach ?>
+        <input type="hidden" name="subtotal" value=<?= $cart->calculateTotal()?>>
+    <button type="submit" name="checkout">Checkout</button>
+</form> -->
+
+<a href="./checkout.php"><button>Checkout</button></a>

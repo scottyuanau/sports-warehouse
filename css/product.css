@@ -1,66 +1,88 @@
 .product__link {
-    color:black;
+  color: black;
 }
 
 .product {
-    display: flex;
-    flex-direction: row;
-    gap:2rem;
-    margin:20px;
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  margin: 20px;
 }
 
-@media (max-width:750px) {
-    .product {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .product__img {
-        width: 400px;
-        height: 400px;
-    }
+@media (max-width: 750px) {
+  .product {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .product__img {
+    width: 400px;
+    height: 400px;
+  }
 }
 
 .product__img img {
-    display: block;
-    overflow: hidden;
+  display: block;
+  overflow: hidden;
 }
 
 .product__img {
-    width: 400px;
-    height: 400px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border:1px solid grey;
-    border-radius:20px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-    transition: box-shadow 0.3s ease-in-out;
-    min-width:400px;
-    overflow: hidden;
+  width: 400px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid grey;
+  border-radius: 20px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  transition: box-shadow 0.3s ease-in-out;
+  min-width: 400px;
+  overflow: hidden;
+}
+
+@media (max-width: 750px) {
+  .product__img {
+    width: 300px;
+    height: 300px;
+    min-width: 300px;
+  }
 }
 
 .product__img:hover {
-    animation: shadow-transition 0.3s ease-in-out forwards;
+  animation: shadow-transition 0.3s ease-in-out forwards;
 }
 
 .price__nodiscount {
-    font-size: 25px;
-    font-weight: 600;
+  font-size: 25px;
+  font-weight: 600;
 }
 
 .price__sale {
-    font-size: 30px;
-    font-weight: 600;
-    color:brown;
+  font-size: 30px;
+  font-weight: 600;
+  color: brown;
 }
 .price__original {
-    text-decoration: line-through;
-    color:grey;
+  text-decoration: line-through;
+  color: grey;
 }
 
 .product__details {
-    gap:20px;
-    display: flex;
-    flex-direction: column;
+  gap: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-page_addtocart {
+  display: flex;
+  max-width: 200px;
+  gap: 20px;
+}
+
+.product-page_addtocart input {
+  width: 35px;
+  height: 35px;
+  border-radius: 5px;
+  border: 1px solid black;
+  text-align: center;
 }

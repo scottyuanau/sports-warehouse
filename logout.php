@@ -6,7 +6,6 @@ ob_start();
 
 
 session_destroy();
-$currentAddress = $_SERVER['REQUEST_URI'];
 header("Location: index.php");
 
 

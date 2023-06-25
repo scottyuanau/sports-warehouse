@@ -28,7 +28,7 @@ $productId = $product->getProductId();
                 <span class='price__nodiscount'><?= sprintf('$%1.2f', $price ?? "--") ?></span>
             <?php endif ?>
         </div>
-        <form action="cart.php" method="post">
+        <form action="cart.php" method="post" class="product-page_addtocart">
             <input type="hidden" name="itemId" value=<?=$productId ?>>
                 <input type="number" name="qty" min="1" value="1" aria-label="Quantity" title="Quantity">
                 <button type="submit" name="submitAddToCart">Add to Cart</button>

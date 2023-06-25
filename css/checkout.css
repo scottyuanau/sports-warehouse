@@ -1,0 +1,82 @@
+.checkout-wrapper {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 750px) {
+  .checkout-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .order-details {
+    order: 1;
+    border-bottom: 1px dotted black;
+    padding-bottom: 30px;
+  }
+
+  .checkout-form {
+    order: 2;
+  }
+}
+
+.checkout-wrapper form {
+  display: flex;
+  flex-direction: column;
+}
+
+.checkout-wrapper form fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.order-details_row {
+  display: grid;
+  grid-template-columns: 6fr 1fr 1fr;
+  gap: 10px;
+}
+
+.order-details_itemname {
+  display: inline-block;
+}
+
+.order-details_quantity {
+  display: inline-block;
+}
+.order-details_price {
+  display: inline-block;
+}
+
+.order-details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.total-amount {
+  display: grid;
+  grid-template-columns: 6fr 1fr 1fr;
+  align-items: center;
+}
+.subtotal-amount {
+  display: flex;
+  justify-content: space-between;
+}
+
+.amount-calculation {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.checkout-form input {
+  height: 1.5rem;
+  border-radius: 5px;
+  border: 1px dotted rgb(95, 95, 95);
+  padding: 0.5rem;
+}

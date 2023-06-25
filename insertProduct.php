@@ -18,9 +18,23 @@ $title = "Add a new product";
 // Start output buffering
 ob_start();
 
+// if user is not logged in, redirect to the login page
+if (!isset($_SESSION['user'])) {
+    header("Location: login.php");
+}
+
+// if user is not admin, advise user that only admin is allowed
+if ($_SESSION['username'] !== 'admin') {
+    echo "Only admin is allowed to access this page";
+}
+
 //list the categories
 $categoryObj = new Category();
 $categories = $categoryObj->getCategories();
+
+// Check if the user is not logged in as admin
+if (isset($_SESSION['user']) && $_SESSION['username'] === 'admin' ) {
+
 
 // Check if form has been submitted
 if (isset($_POST['submitInsertProduct'])) {
@@ -93,7 +107,7 @@ if (isset($_POST['submitInsertProduct'])) {
     // Just display the empty form
     include_once "./templates/_insertProductPage.html.php";
 }
-
+}
 // Stop output buffering
 $output = ob_get_clean();
 

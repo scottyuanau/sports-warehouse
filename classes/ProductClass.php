@@ -286,7 +286,7 @@ class Product
         $rows = $this->_db->executeSQL($stmt);
         return $rows;
 
-      } catch (PDOException $e) {
+      } catch (Exception $e) {
         throw $e;
       }
     }

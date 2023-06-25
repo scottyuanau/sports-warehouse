@@ -15,15 +15,30 @@ $title = "Add a new category";
 // Start output buffering
 ob_start();
 
+
+// if user is not logged in, redirect to the login page
+if (!isset($_SESSION['user'])) {
+  header("Location: login.php");
+}
+
+// if user is not admin, advise user that only admin is allowed
+if ($_SESSION['username'] !== 'admin') {
+  echo "Only admin is allowed to access this page";
+}
+
+
 //list the categories
-$sqlCategory = <<<SQL
-    SELECT categoryName, categoryId
-    FROM category
-    SQL;
-$smstCat = $db->prepareStatement($sqlCategory);
-$categories = $db->executeSQL($smstCat);
+// $sqlCategory = <<<SQL
+//     SELECT categoryName, categoryId
+//     FROM category
+//     SQL;
+// $smstCat = $db->prepareStatement($sqlCategory);
+// $categories = $db->executeSQL($smstCat);
 
 // Check if form has been submitted
+if (isset($_SESSION['user']) && $_SESSION['username'] === 'admin' ) {
+
+
 if (isset($_POST['submitInsertCategory'])) {
 
   // Collection of all errors for this form (no errors by default)
@@ -72,7 +87,7 @@ if (isset($_POST['submitInsertCategory'])) {
   // Just display the empty form
   include_once "./templates/_insertCategoryPage.html.php";
 }
-
+}
 // Stop output buffering
 $output = ob_get_clean();
 

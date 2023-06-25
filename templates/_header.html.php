@@ -12,11 +12,11 @@ $categories = $categoryObj->getCategories();
         <a href="index.php" class="logo__link"><img src='img/logo.png' alt='site-logo' class='logo'></a>
         <form class='searchbar' action="search.php" method="get">
             <label for="searchbox"></label>
-            <input id='searchbox' type='search' name="search" placeholder="Search products" class="searchbar-input" role="searchbox">
+            <input id='searchbox' type='search' name="search" placeholder="Search products" class="searchbar-input">
 
             <button class="searchbar-icon" type="submit" aria-label="Product search">
                 <!-- <i class="fa-solid fa-magnifying-glass searchbar-icon_inside" role="button"></i> -->
-                <img class="searchbar-icon__magnifier" src="./img/magnifier.png">
+                <img class="searchbar-icon__magnifier" src="./img/magnifier.png" alt="search-icon">
             </button>
         </form>
     </header>
