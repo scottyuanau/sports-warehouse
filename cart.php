@@ -17,6 +17,11 @@ $title = "Shopping Cart";
 // Get shopping cart from the session (create a new cart if it doesn't exist)
 $cart = $_SESSION["cart"] ?? new ShoppingCart();
 
+// if cart item is not set, set it to 0;
+if (!isset($_SESSION["cartItem"])) {
+    $_SESSION["cartItem"] = 0;
+}
+
 // Start output buffering
 ob_start();
 
@@ -70,7 +75,7 @@ if (isset($_POST['submitAddToCart'])) {
 
     // save the shopping cart into the session
     $_SESSION["cart"] = $cart;
-    $_SESSION["cartItem"] = $cart->count();
+    $_SESSION["cartItem"] = $_SESSION["cartItem"]+$qty;
 
     } catch(Exception $err) {
         $error["exception"] = "Error adding to cart: ". $err->getMessage();
