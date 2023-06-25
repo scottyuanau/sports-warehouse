@@ -54,7 +54,7 @@
         <span class="notes">AUD</span>
         <span class="total-amount_details emphasis">$<?= $cart->calculateTotal()?></span>
     </div>
-    <span class="total-amount_tax notes">includes $<?= $cart->calculateTotal()/11?> in taxes</span>
+    <span class="total-amount_tax notes">includes $<?= number_format($cart->calculateTotal()/11, 2)?> in taxes</span>
 </div>
 </div>
 

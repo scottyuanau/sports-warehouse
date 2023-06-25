@@ -15,6 +15,7 @@
 @import url("tabs.css");
 @import url("checkout.css");
 @import url("font.css");
+@import url("cart.css");
 
 main {
   width: 80%;

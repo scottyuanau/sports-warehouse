@@ -1,38 +1,50 @@
-<h2>Shopping Cart</h2>
+<h1>Shopping Cart</h1>
 <?php include "_formErrorSummary.html.php" ?>
 
-<table>
-    <tr>
-        <th>item</th>
-        <th>Price</th>
-        <th>Quantity</th>
-        <th></th>
-    </tr>
+<div class="cart-wrapper">
+<div class="order-items">
+<div class="order-items_row">
+    <span>Item</span>
+    <span>Qty</span>
+    <span>Amount</span>
+    <span>Action</span>
+</div>
 <?php foreach ($cart->getItems() as $item): ?>
 
-    <tr>
-        <td><?= $item->getItemName()?></td>
-        <td><?= sprintf('$%1.2f', $item->getPrice() ?? "--")?></td>
-        <td><?= $item->getQuantity()?></td>
-        <td>
-        <form action="cart.php" method="post">
-            <input type="hidden" name="itemId" value=<?= $item->getItemId();?>>
-            <button type="submit" name="submitRemoveFromCart">Remove</button>
-        </form></td>
-    </tr>
+<div class="order-items_row">
+<span><?= $item->getItemName()?></span>
+<span><?= $item->getQuantity()?></span>
+<span><?= sprintf('$%1.2f', $item->getPrice() ?? "--")?></span>
+<form action="cart.php" method="post">
+        <input type="hidden" name="itemId" value=<?= $item->getItemId();?>>
+        <button type="submit" name="submitRemoveFromCart">Remove</button>
+    </form>
+</div>
 
 <?php endforeach ?>
-    <td>Total Amount: $<?= $cart->calculateTotal()?></td>
-</table>
+</div>
 
-<!-- <form action="checkout.php" method="post">
-    <?php foreach ($cart->getItems() as $item): ?>
-        <input type="hidden" name="<?= "itemName".$item->getItemId();?>" value=<?= $item->getItemId();?>>
-        <input type="hidden" name="<?= "price".$item->getItemId();?>" value=<?= $item->getPrice();?>>
-        <input type="hidden" name="<?= "quantity".$item->getItemId();?>" value=<?= $item->getQuantity();?>>
-    <?php endforeach ?>
-        <input type="hidden" name="subtotal" value=<?= $cart->calculateTotal()?>>
-    <button type="submit" name="checkout">Checkout</button>
-</form> -->
+<div class="order-amount-summary">
+    <h2>Summary</h2>
 
-<a href="./checkout.php"><button>Checkout</button></a>
+    <div class="order-amount-summary_row">
+        <span>Subtotal</span>
+        <span>$<?= number_format($cart->calculateTotal()/11*10, 2)?></span>
+    </div>
+    <div class="order-amount-summary_row">
+        <span>GST</span>
+        <span>$<?= number_format($cart->calculateTotal()/11,2)?></span>
+    </div>
+    <div class="order-amount-summary_row">
+        <span class="emphasis">Order Total</span>
+        <span class="emphasis">$<?= $cart->calculateTotal()?></span>
+    </div>
+
+    <div class="checkout-button"><button onclick="window.location.href='./checkout.php';">Checkout</button>
+</div>
+</div>
+
+</div>
+
+
+
