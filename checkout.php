@@ -17,7 +17,7 @@ $title = "Checkout";
 
 // Get shopping cart from the session (create a new cart if it doesn't exist)
 
-if(!isset($_SESSION["cart"])) {
+if(empty($_SESSION["cart"])) {
     header("Location: cart.php");
 }
 
@@ -25,6 +25,12 @@ $cart = $_SESSION["cart"];
 
 // Start output buffering
 ob_start();
+
+//check if cart item is empty, otherwise redirect back to cart page
+if($_SESSION['cartItem'] === 0){
+    header("Location: cart.php");
+}
+
 
 if(isset($_POST['buyNow'])) {
     // Collection of all errors for this form (no errors by default)

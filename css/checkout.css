@@ -63,8 +63,8 @@
   align-items: center;
 }
 .subtotal-amount {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 6fr 1fr 1fr;
 }
 
 .amount-calculation {

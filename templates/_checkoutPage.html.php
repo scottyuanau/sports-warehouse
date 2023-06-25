@@ -47,6 +47,7 @@
 <div class="amount-calculation">
 <div class="subtotal-amount">
         <span class="subtotal-amount_heading font_subtotal">Subtotal</span>
+        <span></span>
         <span class="subtotal-amount_details font_subtotal">$<?= $cart->calculateTotal()?></span>
     </div>
     <div class="total-amount">
